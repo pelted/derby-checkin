@@ -1,15 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Races</h1>
 
-<table>
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th>Rules</th>
       <th>Location</th>
-      <th>Slug</th>
       <th>Date</th>
       <th>Time</th>
       <th colspan="3"></th>
@@ -20,12 +15,9 @@
     <% @races.each do |race| %>
       <tr>
         <td><%= race.title %></td>
-        <td><%= race.description %></td>
-        <td><%= race.rules %></td>
         <td><%= race.location %></td>
-        <td><%= race.slug %></td>
         <td><%= race.date %></td>
-        <td><%= race.time %></td>
+        <td><%= race.time.strftime("%I:%M %p") %></td>
         <td><%= link_to 'Show', race %></td>
         <td><%= link_to 'Edit', edit_race_path(race) %></td>
         <td><%= link_to 'Destroy', race, method: :delete, data: { confirm: 'Are you sure?' } %></td>
