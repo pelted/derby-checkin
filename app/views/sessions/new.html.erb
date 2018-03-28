@@ -5,13 +5,19 @@
         <div class="box">
           <%= form_for :session, url: session_path do |form| %>
             <div class="field">
-              <p class="control">
+              <p class="control has-icons-left">
                 <%= form.email_field :email, placeholder: "Email", class: "input is-medium" %>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
               </p>
             </div>
             <div class="field">
-              <p class="control">
+              <p class="control has-icons-left">
                 <%= form.password_field :password, placeholder: "Password", class: "input is-medium" %>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
               </p>
             </div>
             <br>

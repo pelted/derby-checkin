@@ -6,6 +6,7 @@ ruby '2.5.0'
 gem 'ancestry'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'font-awesome-sass', require: 'font-awesome-sass' 
 gem 'friendly_id'
 gem 'mini_racer', platforms: :ruby
 gem 'oath'
