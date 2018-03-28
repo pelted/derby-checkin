@@ -1,4 +1,11 @@
-<h1>Races</h1>
+<div class="level">
+  <div class="level-left">
+    <p class="title level-item">Race List</p>
+  </div>
+  <div class="level-right">
+    <%= link_to 'New Race', new_race_path, class: "button is-link level-item" %>
+  </div>
+</div>
 
 <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
   <thead>
@@ -25,7 +32,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Race', new_race_path %>
