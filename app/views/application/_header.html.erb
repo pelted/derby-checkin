@@ -1,0 +1,13 @@
+<nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to "Derby Check-In", root_path, class: "navbar-item" %>
+  </div>
+
+  <div class="navbar-end">
+    <% if signed_in? %>
+      <%= link_to "Sign out", session_path, method: :delete, class: "navbar-item" %>
+    <% else %>
+      <%= link_to "Sign in", new_session_path, class: "navbar-item" %>
+    <% end %>
+  </div>
+</nav>
