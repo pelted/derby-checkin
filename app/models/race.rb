@@ -14,6 +14,6 @@ class Race < ApplicationRecord
   end
 
   def year
-    date.year || Date.today.year
+    date&.year || Date.today.year
   end
 end

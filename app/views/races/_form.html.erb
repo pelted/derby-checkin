@@ -59,7 +59,7 @@
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_year Date.today, { field_name: "date(1i)" } %>
+            <%= select_year Date.today, { field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year } %>
           </div>
         </div>
       </div>
