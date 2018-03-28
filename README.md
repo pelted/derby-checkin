@@ -1,24 +1,5 @@
-# README
+# Derby Check-in
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic web app for registering and checking in derby racers. Provides a simple solution for a Cub Scout pack to organize it's Pinewood Derby&reg; races.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Easily deploy to Heroku or other hosting service, setup your race information, then send a link to your group. Your group members can easily submit their car and racer details. On race day check-in cars, record race number and weight, then export the data for use in your race management software.
