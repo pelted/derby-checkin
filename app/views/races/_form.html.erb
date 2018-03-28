@@ -11,37 +11,117 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium">
+      <%= form.label :title, class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control is-expanded">
+          <%= form.text_field :title, class: "input is-medium" %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium">
+      <%= form.label :location, class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control is-expanded">
+          <%= form.text_field :location, class: "input is-medium" %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :rules %>
-    <%= form.text_area :rules %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium">
+      <%= form.label :date, class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= select_month Date.today, { field_name: "date(2i)" } %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= select_day Date.today, { field_name: "date(3i)" } %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= select_year Date.today, { field_name: "date(1i)" } %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium">
+      <%= form.label :time, class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= select_hour Time.zone.parse('9:00am'), { field_name: "time(4i)", ampm: true } %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= select_minute Time.zone.parse('9:00am'), { field_name: "time(5i)", minute_step: 15 } %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium">
+      <%= form.label :description, class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control is-expanded">
+          <%= form.text_area :description, class: "textarea is-medium" %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.time_select :time %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium">
+      <%= form.label :rules, class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control is-expanded">
+          <%= form.text_area :rules, class: "textarea is-medium" %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field is-horizontal">
+    <div class="field-label is-medium"></div>
+    <div class="field-body">
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <%= form.submit nil, class: "button is-success is-medium" %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
