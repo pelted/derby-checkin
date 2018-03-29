@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Edit Encryped Credentials",
+      "type": "shell",
+      "command": "EDITOR='code --wait' bundle exec bin/rails credentials:edit",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run All Tests",
+      "type": "shell",
+      "command": "bundle exec rails test",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Clean Up ERB",
+      "type": "shell",
+      "command": "htmlbeautifier ${file}",
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "panel": "shared"
+      }
+    }
+  ]
+}
