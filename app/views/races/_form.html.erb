@@ -30,8 +30,8 @@
     </div>
     <div class="field-body">
       <div class="field">
-        <div class="control is-expanded">
-          <%= form.text_field :location, class: "input is-medium" %>
+        <div class="control is-expanded" data-controller="location">
+          <%= form.text_field :location, class: "input is-medium", "data-target": "location.input" %>
         </div>
       </div>
     </div>
