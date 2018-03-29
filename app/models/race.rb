@@ -28,16 +28,17 @@ class Race < ApplicationRecord
   end
 
   def address
-    Address.new(Hash(location))
+    self.location = { text: location } if location.is_a? String
+    Address.new(location)
   end
 
   private
 
   def update_location
-    if self.location.empty?
-      self.location = nil
-    else
-      self.location = JSON.parse self.location, symbolize_names: true
-    end
+    self.location = if location.empty?
+                      nil
+                    else
+                      JSON.parse location, symbolize_names: true
+                    end
   end
 end
