@@ -13,7 +13,15 @@ class Race < ApplicationRecord
     ]
   end
 
+  def date
+    self[:date] || Date.today + 1.day
+  end
+
+  def time
+    self[:time] || Time.zone.parse('10:00am')
+  end
+
   def year
-    date&.year || Date.today.year
+    date.year
   end
 end

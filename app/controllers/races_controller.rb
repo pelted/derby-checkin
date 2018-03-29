@@ -3,7 +3,7 @@ class RacesController < ApplicationController
 
   # GET /races
   def index
-    @races = Race.all
+    @races = Race.all.order(date: :asc)
   end
 
   # GET /races/1
@@ -22,7 +22,7 @@ class RacesController < ApplicationController
   # POST /races
   def create
     @race = Race.new(race_params)
-
+    
     if @race.save
       redirect_to @race, notice: 'Race was successfully created.'
     else

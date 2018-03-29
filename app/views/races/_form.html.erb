@@ -45,21 +45,21 @@
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_month Date.today, { field_name: "date(2i)" } %>
+            <%= select_month @race.date, { prefix: 'race', field_name: "date(2i)" } %>
           </div>
         </div>
       </div>
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_day Date.today, { field_name: "date(3i)" } %>
+            <%= select_day @race.date, { prefix: 'race', field_name: "date(3i)" } %>
           </div>
         </div>
       </div>
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_year Date.today, { field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year } %>
+            <%= select_year @race.date, { prefix: 'race', field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year } %>
           </div>
         </div>
       </div>
@@ -74,14 +74,14 @@
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_hour Time.zone.parse('9:00am'), { field_name: "time(4i)", ampm: true } %>
+            <%= select_hour @race.time, { prefix: 'race', field_name: "time(4i)", ampm: true } %>
           </div>
         </div>
       </div>
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_minute Time.zone.parse('9:00am'), { field_name: "time(5i)", minute_step: 15 } %>
+            <%= select_minute @race.time, { prefix: 'race', field_name: "time(5i)", minute_step: 15 } %>
           </div>
         </div>
       </div>
