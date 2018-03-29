@@ -6,6 +6,8 @@ class Race < ApplicationRecord
   validates :date, timeliness: { on_or_after: -> { Date.current }, type: :date }
   validates :time, timeliness: { between: '7:00am'...'10:00pm', type: :time }
 
+  before_save :update_location
+
   def slug_candidates
     [
       :title,
@@ -23,5 +25,19 @@ class Race < ApplicationRecord
 
   def year
     date.year
+  end
+
+  def address
+    Address.new(Hash(location))
+  end
+
+  private
+
+  def update_location
+    if self.location.empty?
+      self.location = nil
+    else
+      self.location = JSON.parse self.location, symbolize_names: true
+    end
   end
 end

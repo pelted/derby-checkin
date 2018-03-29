@@ -1,8 +1,24 @@
-<section class="hero is-warning">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title"><%= @race.title %></h1>
-      <h2 class="subtitle">Registration</h2>
+<artical>
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title"><%= @race.title %></h1>
+      </div>
+      <hr>
+      <div class="container has-text-centered">
+        <h2 class="subtitle"><%= I18n.localize @race.date, format: :full_date %> @ <%= I18n.localize @race.time, format: :simple_time %></h2>
+        <address>
+          <strong><%= @race.address.name %></strong>
+          <br>
+          <%= @race.address.formatted_address %>
+        </address>
+      </div>
+      <br>
+      <div class="container has-text-centered">
+        <button class="button is-medium is-success">
+          Register Your Car
+        </button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</artical>

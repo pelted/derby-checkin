@@ -31,7 +31,8 @@
     <div class="field-body">
       <div class="field">
         <div class="control is-expanded" data-controller="location">
-          <%= form.text_field :location, class: "input is-medium", "data-target": "location.input" %>
+          <%= form.hidden_field :location, "data-target": "location.output" %>
+          <%= text_field_tag 'Location', @race.address&.text, class: "input is-medium", "data-target": "location.input" %>
         </div>
       </div>
     </div>

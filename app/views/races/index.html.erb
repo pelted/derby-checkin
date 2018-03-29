@@ -22,7 +22,7 @@
     <% @races.each do |race| %>
       <tr>
         <td><%= race.title %></td>
-        <td><%= race.location %></td>
+        <td><%= race.address %></td>
         <td><%= race.date %></td>
         <td><%= race.time.strftime("%I:%M %p") %></td>
         <td><%= link_to 'Show', race %></td>
