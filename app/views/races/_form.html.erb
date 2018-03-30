@@ -1,16 +1,13 @@
 <%= form_with(model: race, local: true) do |form| %>
   <% if race.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(race.errors.count, "error") %> prohibited this race from being saved:</h2>
-
-      <ul>
-      <% race.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div id="error_explanation" class="notification is-warning has-text-centered">
+      <h2><%= pluralize(race.errors.count, "error") %> prohibited this race from being saved.</h2>
     </div>
   <% end %>
 
+  <div class="box">
+  
+  
   <div class="field is-horizontal">
     <div class="field-label is-medium">
       <%= form.label :title, class: "label" %>
@@ -20,6 +17,7 @@
         <div class="control is-expanded">
           <%= form.text_field :title, class: "input is-medium" %>
         </div>
+        <%= field_error_messages race, :title %>
       </div>
     </div>
   </div>
@@ -34,6 +32,7 @@
           <%= form.hidden_field :location, "data-target": "location.output" %>
           <%= text_field_tag 'Location', @race.address&.text, class: "input is-medium", "data-target": "location.input" %>
         </div>
+        <%= field_error_messages race, :location %>
       </div>
     </div>
   </div>
@@ -46,21 +45,22 @@
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_month @race.date, { prefix: 'race', field_name: "date(2i)" } %>
+            <%= select_month @race.date, { prefix: 'race', field_name: "date(2i)" }, class: field_error_class(race, :date) %>
+          </div>
+        </div>
+        <%= field_error_messages race, :date %>
+      </div>
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= select_day @race.date, { prefix: 'race', field_name: "date(3i)" }, class: field_error_class(race, :date) %>
           </div>
         </div>
       </div>
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_day @race.date, { prefix: 'race', field_name: "date(3i)" } %>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= select_year @race.date, { prefix: 'race', field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year } %>
+            <%= select_year @race.date, { prefix: 'race', field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year }, class: field_error_class(race, :date) %>
           </div>
         </div>
       </div>
@@ -75,14 +75,15 @@
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_hour @race.time, { prefix: 'race', field_name: "time(4i)", ampm: true } %>
+            <%= select_hour @race.time, { prefix: 'race', field_name: "time(4i)", ampm: true }, class: field_error_class(race, :time) %>
           </div>
         </div>
+        <%= field_error_messages race, :time %>
       </div>
       <div class="field">
         <div class="control">
           <div class="select is-fullwidth">
-            <%= select_minute @race.time, { prefix: 'race', field_name: "time(5i)", minute_step: 15 } %>
+            <%= select_minute @race.time, { prefix: 'race', field_name: "time(5i)", minute_step: 15 }, class: field_error_class(race, :time) %>
           </div>
         </div>
       </div>
@@ -126,3 +127,4 @@
     </div>
   </div>
 <% end %>
+</div>

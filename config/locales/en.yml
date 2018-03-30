@@ -5,3 +5,13 @@ en:
   time:
     formats:
       simple_time: '%l:%M %P'
+
+  activerecord:
+    errors:
+      models:
+        race:
+          attributes:
+            date:
+              on_or_after: 'can not be in the past'
+            time:
+              on_or_after: 'should be something reasonable'
