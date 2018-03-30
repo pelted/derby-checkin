@@ -38,7 +38,7 @@ class Race < ApplicationRecord
     self.location = if location.empty?
                       nil
                     else
-                      JSON.parse location, symbolize_names: true
+                      JSON.parse location.gsub('=>', ':'), symbolize_names: false
                     end
   end
 end
