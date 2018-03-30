@@ -11,6 +11,8 @@ en:
       models:
         race:
           attributes:
+            location:
+              blank: 'should be provided so racers know where to go'
             date:
               on_or_after: 'can not be in the past'
             time:

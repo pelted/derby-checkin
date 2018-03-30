@@ -6,125 +6,123 @@
   <% end %>
 
   <div class="box">
-  
-  
-  <div class="field is-horizontal">
-    <div class="field-label is-medium">
-      <%= form.label :title, class: "label" %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control is-expanded">
-          <%= form.text_field :title, class: "input is-medium" %>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :title, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_field :title, class: "input is-medium" %>
+          </div>
+          <%= field_error_messages race, :title %>
         </div>
-        <%= field_error_messages race, :title %>
       </div>
     </div>
-  </div>
 
-  <div class="field is-horizontal">
-    <div class="field-label is-medium">
-      <%= form.label :location, class: "label" %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control is-expanded" data-controller="location">
-          <%= form.hidden_field :location, "data-target": "location.output" %>
-          <%= text_field_tag 'Location', @race.address&.text, class: "input is-medium", "data-target": "location.input" %>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :location, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded" data-controller="location">
+            <%= form.hidden_field :location, "data-target": "location.output" %>
+            <%= text_field_tag 'Location', @race.address&.text, class: "input is-medium #{field_error_class(race, :location)}", "data-target": "location.input" %>
+          </div>
+          <%= field_error_messages race, :location %>
         </div>
-        <%= field_error_messages race, :location %>
       </div>
     </div>
-  </div>
 
-  <div class="field is-horizontal">
-    <div class="field-label is-medium">
-      <%= form.label :date, class: "label" %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= select_month @race.date, { prefix: 'race', field_name: "date(2i)" }, class: field_error_class(race, :date) %>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :date, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <%= select_month @race.date, { prefix: 'race', field_name: "date(2i)" }, class: field_error_class(race, :date) %>
+            </div>
+          </div>
+          <%= field_error_messages race, :date %>
+        </div>
+        <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <%= select_day @race.date, { prefix: 'race', field_name: "date(3i)" }, class: field_error_class(race, :date) %>
+            </div>
           </div>
         </div>
-        <%= field_error_messages race, :date %>
-      </div>
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= select_day @race.date, { prefix: 'race', field_name: "date(3i)" }, class: field_error_class(race, :date) %>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= select_year @race.date, { prefix: 'race', field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year }, class: field_error_class(race, :date) %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="field is-horizontal">
-    <div class="field-label is-medium">
-      <%= form.label :time, class: "label" %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= select_hour @race.time, { prefix: 'race', field_name: "time(4i)", ampm: true }, class: field_error_class(race, :time) %>
-          </div>
-        </div>
-        <%= field_error_messages race, :time %>
-      </div>
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= select_minute @race.time, { prefix: 'race', field_name: "time(5i)", minute_step: 15 }, class: field_error_class(race, :time) %>
+        <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <%= select_year @race.date, { prefix: 'race', field_name: "date(1i)", start_year: Date.today.year, end_year: (Date.today + 2.years).year }, class: field_error_class(race, :date) %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="field is-horizontal">
-    <div class="field-label is-medium">
-      <%= form.label :description, class: "label" %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control is-expanded">
-          <%= form.text_area :description, class: "textarea is-medium" %>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :time, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <%= select_hour @race.time, { prefix: 'race', field_name: "time(4i)", ampm: true }, class: field_error_class(race, :time) %>
+            </div>
+          </div>
+          <%= field_error_messages race, :time %>
+        </div>
+        <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <%= select_minute @race.time, { prefix: 'race', field_name: "time(5i)", minute_step: 15 }, class: field_error_class(race, :time) %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="field is-horizontal">
-    <div class="field-label is-medium">
-      <%= form.label :rules, class: "label" %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control is-expanded">
-          <%= form.text_area :rules, class: "textarea is-medium" %>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :description, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_area :description, class: "textarea is-medium" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="field is-horizontal">
-    <div class="field-label is-medium"></div>
-    <div class="field-body">
-      <div class="field is-grouped is-grouped-right">
-        <div class="control">
-          <%= form.submit nil, class: "button is-success is-medium" %>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :rules, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_area :rules, class: "textarea is-medium" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium"></div>
+      <div class="field-body">
+        <div class="field is-grouped is-grouped-right">
+          <div class="control">
+            <%= form.submit nil, class: "button is-success is-medium" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

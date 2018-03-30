@@ -3,11 +3,7 @@ $body-background-color: rgb(245, 245, 245);
 
 @import '~bulma/bulma';
 
-.field_with_errors > input {
-  border-color: #ff3860;
-  background-color: #ff38603d;
-}
-select.is-danger {
+.field_with_errors>input, input.is-danger, select.is-danger {
   border-color: #ff3860;
   background-color: #ff38603d;
 }

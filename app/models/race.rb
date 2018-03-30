@@ -3,6 +3,7 @@ class Race < ApplicationRecord
   friendly_id :slug_candidates, use: :slugged
 
   validates :title, length: { minimum: 8, maximum: 64 }
+  validates :location, presence: true
   validates :date, timeliness: { on_or_after: -> { Date.current }, type: :date }
   validates :time, timeliness: { between: '7:00am'...'10:00pm', type: :time }
 
