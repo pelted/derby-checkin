@@ -21,7 +21,9 @@
     <%= render 'header' %>
     <section class="section">
       <div class="container">
-        <p id="notice"><%= notice %></p>
+        <% if notice %>
+          <p id="notice" class="notification is-primary has-text-centered"><%= notice %></p>
+        <% end %>
         <%= yield %>
       </div>
     </section>
