@@ -64,10 +64,6 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
-      - type: shell
-        command: |
-          bundle exec rails test
-
       # Save test results for timing analysis
       - store_test_results:
           path: test_results
