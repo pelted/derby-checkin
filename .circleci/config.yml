@@ -64,5 +64,9 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
+      - run:
+          command: bundle exec rake test
+          when: always
+          
       - store_test_results:
           path: test/reports
