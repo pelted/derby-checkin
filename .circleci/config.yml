@@ -82,4 +82,4 @@ jobs:
           path: tmp/reports
     
       - store_artifacts:
-          path: tmp/coverage
+          path: coverage
