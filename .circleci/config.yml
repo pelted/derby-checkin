@@ -64,6 +64,5 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
-      # Save test results for timing analysis
       - store_test_results:
-          path: test_results
+          path: test/reports
