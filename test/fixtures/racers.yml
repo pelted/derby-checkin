@@ -1,0 +1,20 @@
+wolf_scout:
+  first_name: Jonny
+  last_name: Wolf
+  unit: 8
+  rank: :wolf
+
+bear_scout:
+  first_name: Timmy
+  last_name: Bear
+  unit: 8
+  rank: :bear
+
+sibling:
+  first_name: Jenny
+  last_name: Wolf
+
+den_leader:
+  first_name: Wally
+  last_name: Bear
+  unit: 8
