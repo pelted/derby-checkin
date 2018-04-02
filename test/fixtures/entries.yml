@@ -1,0 +1,43 @@
+wolf_entry:
+  race: main_race
+  racer: wolf_scout
+  car_name: Dire Wolf
+  car_weight: 4.98
+  contact_name: Mr. Wolf
+  contact_phone: 1112223333
+  contact_email: mrwolf@example.com
+  status: 0
+  order: 2
+
+sibling_entry:
+  race: main_race
+  racer: sibling
+  car_name: Fast as Lightning
+  car_weight: 4.66
+  contact_name: Mr. Wolf
+  contact_phone: 1112223333
+  contact_email: mrwolf@example.com
+  status: 0
+  order: 1
+
+bear_entry:
+  race: main_race
+  racer: bear_scout
+  car_name: The Grizzly
+  car_weight: 4.87
+  contact_name: Mr. Bear
+  contact_phone: 2223334444
+  contact_email: mrbear@example.com
+  status: 0
+  order: 3
+
+den_leader_entry:
+  race: main_race
+  racer: den_leader
+  car_name: The Claw
+  car_weight: 5.0
+  contact_name: Mr. Bear
+  contact_phone: 2223334444
+  contact_email: mrbear@example.com
+  status: 0
+  order: 4

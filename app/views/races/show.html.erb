@@ -14,10 +14,14 @@
         </address>
       </div>
       <br>
+      
       <div class="container has-text-centered">
-        <button class="button is-medium is-success">
-          Register Your Car
-        </button>
+        <% if signed_in? %>
+          <p class="subtitle">Race Entries</p>
+          <%= render 'entries/table' %>
+        <% else %>
+          <%= link_to 'Register Your Car', new_race_entry_path(race_id: @race.id), class: 'button is-medium is-success' %>
+        <% end %>
       </div>
     </div>
   </section>

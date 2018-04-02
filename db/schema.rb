@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_02_181957) do
+ActiveRecord::Schema.define(version: 2018_04_02_224814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entries", force: :cascade do |t|
+    t.bigint "race_id"
+    t.bigint "racer_id"
+    t.integer "status", default: 0, null: false
+    t.integer "order", null: false
+    t.string "car_name", null: false
+    t.decimal "car_weight", precision: 5, scale: 2, default: "0.0", null: false
+    t.string "contact_name"
+    t.string "contact_phone"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["race_id", "order"], name: "index_entries_on_race_id_and_order", unique: true
+    t.index ["race_id", "racer_id"], name: "index_entries_on_race_id_and_racer_id", unique: true
+    t.index ["race_id"], name: "index_entries_on_race_id"
+    t.index ["racer_id"], name: "index_entries_on_racer_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -56,4 +74,6 @@ ActiveRecord::Schema.define(version: 2018_04_02_181957) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "entries", "racers"
+  add_foreign_key "entries", "races"
 end

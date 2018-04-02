@@ -7,6 +7,8 @@ class Race < ApplicationRecord
   validates :date, timeliness: { on_or_after: -> { Date.current }, type: :date, unless: -> { persisted? } }
   validates :time, timeliness: { between: '7:00am'...'10:00pm', type: :time }
 
+  has_many :entries, dependent: :destroy
+
   before_save :update_location
 
   def slug_candidates
