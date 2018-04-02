@@ -1,13 +1,20 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+wolf_scout:
+  first_name: Jonny
+  last_name: Wolf
+  unit: 8
+  rank: :wolf
 
-one:
-  first_name: MyString
-  last_name: MyString
-  unit: 1
-  rank: MyString
+bear_scout:
+  first_name: Timmy
+  last_name: Bear
+  unit: 8
+  rank: :bear
 
-two:
-  first_name: MyString
-  last_name: MyString
-  unit: 1
-  rank: MyString
+sibling:
+  first_name: Jenny
+  last_name: Wolf
+
+den_leader:
+  first_name: Wally
+  last_name: Bear
+  unit: 8

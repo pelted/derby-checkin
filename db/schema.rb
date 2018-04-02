@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2018_04_02_181957) do
   end
 
   create_table "racers", force: :cascade do |t|
-    t.string "first_name"
+    t.string "first_name", null: false
     t.string "last_name"
-    t.integer "unit"
-    t.string "rank"
+    t.integer "unit", default: 0
+    t.integer "rank", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
