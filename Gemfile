@@ -36,4 +36,5 @@ group :test do
   gem 'chromedriver-helper'
   gem 'minitest-ci'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
