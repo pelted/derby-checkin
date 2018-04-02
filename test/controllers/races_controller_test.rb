@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class RacesControllerTest < ActionDispatch::IntegrationTest
+  include Oath::Test::Helpers
+
   setup do
-    @race = races(:one)
+    @race = races(:main_race)
+    @admin = users(:admin_user)
+    sign_in @admin
   end
 
   test "should get index" do

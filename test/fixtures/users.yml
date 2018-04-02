@@ -1,0 +1,6 @@
+DEFAULTS: &DEFAULTS
+  email: $LABEL@example.com
+  password_digest: <%= BCrypt::Password.create('pa$$w0rd!') %>
+
+admin_user:
+  <<: *DEFAULTS
