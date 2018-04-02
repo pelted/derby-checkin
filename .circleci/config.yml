@@ -11,10 +11,6 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Which bundler?
-          command: bundle -v
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -43,10 +39,6 @@ jobs:
           key: v1-yarn-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
           name: Database setup
