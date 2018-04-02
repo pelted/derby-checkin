@@ -1,19 +1,16 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+DEFAULTS: &DEFAULTS
+  title: $LABEL
+  slug: $LABEL
+  location: Non Geocoded Location
+  description:
+  rules:
 
-one:
-  title: MyString
-  description: MyText
-  rules: MyText
-  location: 
-  slug: MyString
-  date: 2018-03-28
-  time: 2018-03-28 14:05:48
+main_race:
+  <<: *DEFAULTS
+  date: <%= Date.today + 1.weeks %>
+  time: <%= (Time.now + 1.weeks).beginning_of_day + 10.hours %>
 
-two:
-  title: MyString
-  description: MyText
-  rules: MyText
-  location: 
-  slug: MyString
-  date: 2018-03-28
-  time: 2018-03-28 14:05:48
+district_race:
+  <<: *DEFAULTS
+  date: <%= Date.today + 3.weeks %>
+  time: <%= (Time.now + 3.weeks).beginning_of_day + 13.hours %>

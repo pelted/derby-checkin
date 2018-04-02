@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class RacesTest < ApplicationSystemTestCase
   setup do
-    @race = races(:one)
+    @race = races(:main_race)
   end
 
   test "visiting the index" do
