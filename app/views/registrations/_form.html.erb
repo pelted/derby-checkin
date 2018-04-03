@@ -1,0 +1,125 @@
+<%= form_with(scope: registration, url: race_registrations_path, local: true) do |form| %>
+  <% if registration.errors.any? %>
+    <div id="error_explanation" class="notification is-warning has-text-centered">
+      <h2><%= pluralize(registration.errors.count, "error") %> prohibited this registration from being saved.</h2>
+    </div>
+  <% end %>
+  <div class="box">
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :car_name, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_field :car_name, class: "input is-medium" %>
+          </div>
+          <%= field_error_messages registration, :car_name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label "Who is racing?", class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_field :first_name, class: "input is-medium", placeholder: "First Name" %>
+          </div>
+          <%= field_error_messages registration, :first_name %>
+        </div>
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_field :last_name, class: "input is-medium", placeholder: "Last Name" %>
+          </div>
+          <%= field_error_messages registration, :last_name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label "Unit / Rank", class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field is-narrow">
+          <div class="control">
+            <%= form.number_field :unit, class: "input", placeholder: "Unit" %>
+          </div>
+          <%= field_error_messages registration, :unit %>
+        </div>
+        <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <%= form.select :rank, options_for_select(Racer.ranks.keys.map {|key| [key.humanize, key]}), class: "input", prompt: "Select Rank", selected: registration.rank %>
+            </div>
+          </div>
+          <%= field_error_messages registration, :last_name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <hr>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :contact_name, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <%= form.text_field :contact_name, class: "input is-medium" %>
+          </div>
+          <%= field_error_messages registration, :contact_name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <%= form.label :email_or_phone, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded has-icons-left">
+            <%= form.email_field :contact_email, class: "input is-medium" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+          <%= field_error_messages registration, :contact_email %>
+        </div>
+        <div class="field">
+          <div class="control is-expanded has-icons-left">
+            <%= form.phone_field :contact_phone, class: "input is-medium" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-phone"></i>
+            </span>
+          </div>
+          <%= field_error_messages registration, :contact_phone %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium"></div>
+      <div class="field-body">
+        <div class="field is-grouped is-grouped-right">
+          <div class="control">
+            <%= form.submit nil, class: "button is-success is-medium" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

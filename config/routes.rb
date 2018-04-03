@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
   
   resources :races, only: [:show] do
-    resources :entries, only: [:new, :create]
+    resources :registrations, only: [:new, :create]
   end
 end

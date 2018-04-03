@@ -19,7 +19,7 @@
           <p class="subtitle">Race Entries</p>
           <%= render 'entries/table' %>
         <% else %>
-          <%= link_to 'Register Your Car', new_race_entry_path(race_id: @race.id), class: 'button is-medium is-success' %>
+          <%= link_to 'Register Your Car', new_race_registration_path(race_id: @race.id), class: 'button is-medium is-success' %>
         <% end %>
       </div>
     </div>
