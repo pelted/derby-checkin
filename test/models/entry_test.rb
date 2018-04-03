@@ -8,7 +8,7 @@ class EntryTest < ActiveSupport::TestCase
   test 'can create a new entry' do
     racer = Racer.create(first_name: 'Jeffory', last_name: 'Light')
     assert_difference "Entry.where(race_id: @race.id).maximum(:order)", 1 do
-      Entry.create(race: @race, racer: racer, car_name: 'The Flash')
+      Entry.create(race: @race, racer: racer, car_name: 'The Flash', contact_name: 'Luie Cobbler', contact_email: 'lc@example.com')
     end
   end
 
