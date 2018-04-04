@@ -4,13 +4,26 @@
     {
       "label": "Edit Encryped Credentials",
       "type": "shell",
-      "command": "EDITOR='code --wait' bundle exec bin/rails credentials:edit",
+      "command": "EDITOR='code --wait' /Users/chris/.rbenv/shims/bundle exec bin/rails credentials:edit",
       "problemMatcher": []
     },
     {
       "label": "Run All Tests",
       "type": "shell",
-      "command": "bundle exec rails test",
+      "command": "/Users/chris/.rbenv/shims/bundle exec bin/rails test",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Run Single Test File",
+      "type": "shell",
+      "command": "/Users/chris/.rbenv/shims/bundle exec bin/rails test",
+      "args": [
+        "${file}"
+      ],
       "group": "test",
       "presentation": {
         "reveal": "always",

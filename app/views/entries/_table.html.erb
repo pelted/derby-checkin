@@ -1,0 +1,22 @@
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Car</th>
+      <th>Weight</th>
+      <th>Racer</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.order %></td>
+        <td><%= entry.car_name %></td>
+        <td><%= entry.car_weight %></td>
+        <td><%= entry.racer %></td>
+        <td><%= entry.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

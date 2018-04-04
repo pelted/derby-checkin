@@ -7,6 +7,8 @@ class Race < ApplicationRecord
   validates :date, timeliness: { on_or_after: -> { Date.current }, type: :date, unless: -> { persisted? } }
   validates :time, timeliness: { between: '7:00am'...'10:00pm', type: :time }
 
+  has_many :entries, dependent: :destroy
+
   before_save :update_location
 
   def slug_candidates
@@ -29,17 +31,13 @@ class Race < ApplicationRecord
   end
 
   def address
-    self.location = { text: location } if location.is_a? String
-    Address.new(location)
+    loc = { text: location } if location.is_a? String
+    Address.new(loc)
   end
 
   private
 
   def update_location
-    self.location = if location.empty?
-                      nil
-                    else
-                      JSON.parse location.gsub('=>', ':').to_json
-                    end
+    self.location = JSON.parse location.gsub('=>', ':').to_json
   end
 end

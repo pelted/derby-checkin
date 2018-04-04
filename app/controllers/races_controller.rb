@@ -8,6 +8,9 @@ class RacesController < ApplicationController
 
   # GET /races/1
   def show
+    if signed_in?
+      @entries = @race.entries.includes(:racer).order(order: :asc)
+    end
   end
 
   # GET /races/new
