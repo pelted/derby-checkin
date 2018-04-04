@@ -21,10 +21,10 @@ class RegistrationTest < ActiveSupport::TestCase
   test 'registration is not valid' do
     reg = Registration.new(
       race: @race,
-      first_name: 'Penelope'
     )
     refute reg.valid?
     
+    assert_includes reg.errors, :first_name
     assert_includes reg.errors, :car_name
     assert_includes reg.errors, :contact_name
     assert_includes reg.errors, :contact_email

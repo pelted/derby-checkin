@@ -12,7 +12,6 @@ class RegistrationsController < ApplicationController
     if @registration.save
       redirect_to @race, notice: 'Entry was successfully created.'
     else
-      puts @registration.errors.messages
       render :new
     end
   end
@@ -24,7 +23,6 @@ class RegistrationsController < ApplicationController
 
   def registration_params
     params.require(:registration).permit(
-      :race_id,
       :first_name,
       :last_name,
       :unit,

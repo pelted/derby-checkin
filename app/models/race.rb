@@ -31,17 +31,13 @@ class Race < ApplicationRecord
   end
 
   def address
-    self.location = { text: location } if location.is_a? String
-    Address.new(location)
+    loc = { text: location } if location.is_a? String
+    Address.new(loc)
   end
 
   private
 
   def update_location
-    self.location = if location.empty?
-                      nil
-                    else
-                      JSON.parse location.gsub('=>', ':').to_json
-                    end
+    self.location = JSON.parse location.gsub('=>', ':').to_json
   end
 end
