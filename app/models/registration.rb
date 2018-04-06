@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Registration
   include ActiveModel::Model
 
@@ -16,11 +18,10 @@ class Registration
   )
 
   def save
-    if valid?
-      ActiveRecord::Base.transaction do
-        @racer.save!
-        @entry.save!
-      end
+    return false unless valid?
+    ActiveRecord::Base.transaction do
+      @racer.save!
+      @entry.save!
     end
   end
 
@@ -39,9 +40,7 @@ class Registration
       unit: unit,
       rank: rank
     )
-    unless racer.valid?
-      promote_errors racer.errors
-    end
+    promote_errors racer.errors unless racer.valid?
   end
 
   def new_entry
@@ -53,9 +52,7 @@ class Registration
       contact_email: contact_email,
       contact_phone: contact_phone
     )
-    unless entry.valid?
-      promote_errors entry.errors
-    end
+    promote_errors entry.errors unless entry.valid?
   end
 
   def promote_errors(child_errors)
