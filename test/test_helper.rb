@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
@@ -14,6 +16,6 @@ require 'minitest/ci'
 
 Minitest::Ci.report_dir = File.join('tmp', 'reports')
 
-class ActiveSupport::TestCase
+class ActiveSupport::TestCase # rubocop:disable Style/ClassAndModuleChildren
   fixtures :all
 end

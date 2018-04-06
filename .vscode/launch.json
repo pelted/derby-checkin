@@ -5,12 +5,13 @@
       "name": "Rails server",
       "type": "Ruby",
       "request": "launch",
-      "showDebuggerOutput": true,
       "cwd": "${workspaceRoot}",
+      "showDebuggerOutput": true,
+      "useBundler": true,
       "program": "${workspaceRoot}/bin/rails",
       "args": [
-        "server"
+          "server"
       ]
-    }
+  }
   ]
 }
