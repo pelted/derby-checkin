@@ -21,6 +21,8 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'debase'
+  gem 'ruby-debug-ide'
   gem 'pry'
 end
 

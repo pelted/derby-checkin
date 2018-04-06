@@ -5,6 +5,7 @@
       "name": "Rails server",
       "type": "Ruby",
       "request": "launch",
+      "showDebuggerOutput": true,
       "cwd": "${workspaceRoot}",
       "program": "${workspaceRoot}/bin/rails",
       "args": [
