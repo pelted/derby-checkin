@@ -25,8 +25,8 @@
       <div class="field-body">
         <div class="field">
           <div class="control is-expanded" data-controller="location">
-            <%= form.hidden_field :location, "data-target": "location.output" %>
-            <%= text_field_tag 'Location', @race.address&.text, class: "input is-medium #{field_error_class(race, :location)}", "data-target": "location.input" %>
+            <%= form.hidden_field :location, data: { target: "location.output" } %>
+            <%= text_field_tag 'Location', @race.address&.text, class: "input is-medium #{field_error_class(race, :location)}", data: { target: "location.input" } %>
           </div>
           <%= field_error_messages race, :location %>
         </div>

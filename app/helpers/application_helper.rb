@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def field_error_messages(object, property)
     return unless object.errors.include? property
